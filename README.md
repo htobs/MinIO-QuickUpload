@@ -112,7 +112,7 @@ pyinstaller --onefile --windowed main.py
 
 欢迎提交 Issue 或 Pull Request 来改进本项目！如果你有任何问题或建议，请通过以下方式联系我：
 
-- **Email**: 669059163@qq.com
+- **Email**: heituibasan@outlook.com
 - **Blog**: http://www.perlink.cc/
 
 ------
