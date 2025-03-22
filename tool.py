@@ -90,7 +90,6 @@ def add_registry_entry(target_script_path):
         key = winreg.CreateKey(winreg.HKEY_CLASSES_ROOT, command_path_multi)
         winreg.SetValue(key, "", winreg.REG_SZ, f'"{target_script_path}" "%1"')
         winreg.CloseKey(key)
-
     except Exception as e:
         show_error_message(f"添加注册表项时出错：{e}")
 
@@ -101,26 +100,15 @@ def check_registry_entry():
     :return: True 如果注册表项存在，否则返回 False
     """
     try:
-        # 定义注册表路径
         reg_path_single = r"*\shell\MinIOQuickUpload"  # 单个文件
         reg_path_multi = r"Directory\shell\MinIOQuickUpload"  # 多个文件
-
-        # 检查单个文件的注册表项是否存在
         key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, reg_path_single)
         winreg.CloseKey(key)
-
-        # 检查多个文件的注册表项是否存在
         key = winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, reg_path_multi)
         winreg.CloseKey(key)
-
-        # 如果两个路径都存在，返回 True
         return True
-
     except FileNotFoundError:
-        # 如果任何一个路径不存在，返回 False
         return False
-
     except Exception as e:
-        # 捕获其他异常并返回 False
         print(f"检查注册表项时出错：{e}")
         return False
