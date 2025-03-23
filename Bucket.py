@@ -33,9 +33,6 @@ class Bucket(object):
         :return:
         """
         try:
-            print("1"+bucket_name)
-            print("2"+filename)
-            print("3"+file_path)
             self.client.fput_object(bucket_name, filename, file_path)
         except S3Error as e:
             print("[error]:", e)
